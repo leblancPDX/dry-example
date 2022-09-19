@@ -6,5 +6,5 @@ Duplication can result from *Copy Paste Programming*, poor understanding of how 
 
 ### DRY Example 1
 
-```python:examples/dry_example1.py
-```
+https://github.com/leblancPDX/dry-example/blob/e773bafaca52c93153a86c74de69a9c8a90c992c/examples/dry_example1.py#L1-L9
+
