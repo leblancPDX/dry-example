@@ -12,39 +12,39 @@ References used to create these examples:
 
 In our first example we can clearly see duplication of both logic and information.
 
-https://github.com/leblancPDX/dry-example/blob/main/examples/dry_example1.py#L1-L9
+https://github.com/leblancPDX/dry-example/blob/b7a96a5bc1442f46e762b0af09dca158a82a31b6/examples/dry_example1.py#L1-L9
 
 The `marketplace_fee` appears in multiple places and the logic to calculate the `processing_fee` is duplicated.
 
-https://github.com/leblancPDX/dry-example/blob/main/examples/dry_example1_fixed.py#L1-L7
+https://github.com/leblancPDX/dry-example/blob/b7a96a5bc1442f46e762b0af09dca158a82a31b6/examples/dry_example1_fixed.py#L1-L7
 
 ### DRY Example 2
 
 Our second example is a little harder to see, but does contain duplicated logic.
 
-https://github.com/leblancPDX/dry-example/blob/main/examples/dry_example2.py#L1-L19
+https://github.com/leblancPDX/dry-example/blob/b7a96a5bc1442f46e762b0af09dca158a82a31b6/examples/dry_example2.py#L1-L19
 
 The string created when we print the `Animal` is equivalent to what is written to a file. To eliminate this we can create a `serializeAnimal` function that creates the required string, and then call that function from the existing ones.
 
-https://github.com/leblancPDX/dry-example/blob/main/examples/dry_example2_fixed.py#L1-L21
+https://github.com/leblancPDX/dry-example/blob/b7a96a5bc1442f46e762b0af09dca158a82a31b6/examples/dry_example2_fixed.py#L1-L21
 
 ### DRY Example 3
 
 The third example is a case where the DRY principle should not be used. Looking at the code it seems obvious that the created strings are logically equivalent.
 
-https://github.com/leblancPDX/dry-example/blob/main/examples/dry_example3.py#L1-L28
+https://github.com/leblancPDX/dry-example/blob/b7a96a5bc1442f46e762b0af09dca158a82a31b6/examples/dry_example3.py#L1-L28
 
 So it seems like adding a parent class for the two makes sense.
 
-https://github.com/leblancPDX/dry-example/blob/main/examples/dry_example3_bad_abstraction1.py#L1-L25
+https://github.com/leblancPDX/dry-example/blob/b7a96a5bc1442f46e762b0af09dca158a82a31b6/examples/dry_example3_bad_abstraction1.py#L1-L25
 
 Duplicate logic is now removed. But consider what happens when we want to add new fields, a `breed` for the `Animal` class and `make` and `model` for the `Car` class. If we want to include those strings in the output we have to find a way to force them to be equivalent in some fashion. For example, we could add a `getClassification` that creates an appropriate combined string.
 
-https://github.com/leblancPDX/dry-example/blob/main/examples/dry_example3_bad_abstraction2.py#L1-L35
+https://github.com/leblancPDX/dry-example/blob/b7a96a5bc1442f46e762b0af09dca158a82a31b6/examples/dry_example3_bad_abstraction2.py#L1-L35
 
 This still doesn't look too bad, but consider what happens if we add a new field to just the `Car` object that we want to include in the string. Doing so requires us to know what class we are working with.
 
-https://github.com/leblancPDX/dry-example/blob/main/examples/dry_example3_bad_abstraction3.py#L1-L38
+https://github.com/leblancPDX/dry-example/blob/b7a96a5bc1442f46e762b0af09dca158a82a31b6/examples/dry_example3_bad_abstraction3.py#L1-L38
 
 Checking which subclass you have is definitely a Code Smell and may be a sign of a bad abstraction. For this case the apparent code duplication implied that the classes were equivalent, which is not the case. This issue could have been avoided by talking to the product owner about the class.
 
