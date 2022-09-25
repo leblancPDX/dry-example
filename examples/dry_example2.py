@@ -8,12 +8,12 @@ class Animal():
     def printAnimal(self):
         print("Animal name: " + self.name)
         print("Animal species: " + self.species)
-        print("Animal same: " + self.size)
+        print("Animal size: " + self.size)
 
     def storeAnimalInFile(self, file_name):
         animal = ""
         animal += "Animal name: " + self.name + "\n"
         animal += "Animal species: " + self.species + "\n"
-        animal += "Animal same: " + self.size + "\n"
+        animal += "Animal size: " + self.size + "\n"
         with open(file_name, 'w+') as f:
             f.write(animal)

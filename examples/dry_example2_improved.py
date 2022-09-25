@@ -6,14 +6,14 @@ class Animal():
         self.size = size
 
     def printAnimal(self):
-        print(self.serializeAnimal())
+        print(self)
 
     def storeAnimalInFile(self, file_name):
-        animal = self.serializeAnimal()
+        animal = str(self)
         with open(file_name, 'w+') as f:
             f.write(animal)
     
-    def serializeAnimal(self):
+    def __str__(self):
         animal = ""
         animal += "Animal name: " + self.name + "\n"
         animal += "Animal species: " + self.species + "\n"
